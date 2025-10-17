@@ -5,6 +5,8 @@ public class PlayerITJ : MonoBehaviour
 {
     private float speed = 5f;
     private float rotationSpeed = 40f;
+
+    public int HP = 100;
     
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform projectileSPawnPoint;
@@ -28,10 +30,12 @@ public class PlayerITJ : MonoBehaviour
     {
         if (!Input.GetMouseButtonDown(0)) return;
         
-        var obj = Instantiate(projectilePrefab);
+        var obj = Instantiate(projectilePrefab).GetComponent<ProjetilITJ>();
         
         obj.transform.position = projectileSPawnPoint.position;
         obj.transform.rotation = projectileSPawnPoint.rotation;
+
+        obj.shotFrom = gameObject;
     }
 
     private void MoverRotacao()
@@ -58,5 +62,11 @@ public class PlayerITJ : MonoBehaviour
         if (mov == 0f) return;
         
         _rb2D.velocity = mov * speed * transform.up;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        HP -= damage;
+        if(HP<= 0) Destroy(gameObject);
     }
 }

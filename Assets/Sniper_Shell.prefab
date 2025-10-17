@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 189691826878352506}
   - component: {fileID: 7876432973045166702}
   - component: {fileID: 4789099314584029851}
+  - component: {fileID: 7650420044621420368}
   m_Layer: 0
   m_Name: Sniper_Shell
   m_TagString: Untagged
@@ -126,3 +127,54 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &7650420044621420368
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6306886233144901656}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.11, y: 0.5}
+    newSize: {x: 0.11, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.014750242, y: 0.24807146}
+      - {x: -0.04342871, y: 0.1}
+      - {x: -0.04246444, y: -0.25}
+      - {x: 0.055, y: -0.25}
+      - {x: 0.05455553, y: 0.1}
+      - {x: 0.023178957, y: 0.24807146}
+  m_UseDelaunayMesh: 0
