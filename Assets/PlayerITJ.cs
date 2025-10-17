@@ -4,7 +4,11 @@ using UnityEngine;
 public class PlayerITJ : MonoBehaviour
 {
     private float speed = 5f;
-
+    private float rotationSpeed = 40f;
+    
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform projectileSPawnPoint;
+    
     private Rigidbody2D _rb2D;
 
     private void Start()
@@ -15,6 +19,33 @@ public class PlayerITJ : MonoBehaviour
     private void Update()
     {
         MoverLinear();
+        MoverRotacao();
+
+        Atirar();
+    }
+
+    private void Atirar()
+    {
+        if (!Input.GetMouseButtonDown(0)) return;
+        
+        var obj = Instantiate(projectilePrefab);
+        
+        obj.transform.position = projectileSPawnPoint.position;
+        obj.transform.rotation = projectileSPawnPoint.rotation;
+    }
+
+    private void MoverRotacao()
+    {
+        var mov = 0f;
+
+        if (Input.GetKey(KeyCode.A)) mov += 1f;
+        if (Input.GetKey(KeyCode.D)) mov -= 1f;
+
+        if (mov == 0f) return;
+
+        var rear = (Input.GetKey(KeyCode.S)? -1f : +1f);
+
+        _rb2D.angularVelocity = mov * rotationSpeed * rear;
     }
 
     private void MoverLinear()
