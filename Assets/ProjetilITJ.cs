@@ -1,20 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class ProjetilITJ : MonoBehaviour
 {
-    [SerializeField] private float projectileSpeed = 30f;
-    private Rigidbody2D _rb2d;
+    private Rigidbody2D _rb2D;
+    [SerializeField] private float projectileSpeed = 10f;
+    [SerializeField] private int   projectileDamage = 10;
+    
+    [HideInInspector] public GameObject shotFrom;
     
     // Start is called before the first frame update
     void Start()
     {
-        _rb2d = GetComponent<Rigidbody2D>();
-        _rb2d.velocity = transform.up * projectileSpeed;
+        _rb2D = GetComponent<Rigidbody2D>();
+        
+        _rb2D.velocity = transform.up * projectileSpeed;
     }
 
-    void Update() {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject == shotFrom) return;
+
+        var otherTank = other.GetComponent<PlayerITJ>();
+        if(otherTank != null) otherTank.TakeDamage(projectileDamage);
         
+        Destroy(gameObject);
     }
 }
