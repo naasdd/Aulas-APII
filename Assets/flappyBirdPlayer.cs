@@ -23,7 +23,7 @@ public class flappyBirdPlayer : MonoBehaviour
 
     private void SubiuDemais()
     {
-        if (transform.position.y > teto.position.y) gameOver();
+        if (transform.position.y > teto.position.y);
     }
 
     private void Pular()
